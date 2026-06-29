@@ -5,22 +5,28 @@
 <h1 align="center">powerpogma</h1>
 
 <p align="center">
-  A Figma-like inspector panel for Microsoft PowerPoint.
+  PowerPointの図形をFigma風の右側パネルから編集できるOfficeアドインです。
+</p>
+
+<p align="center">
+  <strong>日本語</strong>
+  ·
+  <a href="./README.en.md">English</a>
 </p>
 
 <p align="center">
   <a href="https://monjofight.github.io/powerpogma/src/taskpane.html">Taskpane</a>
   ·
-  <a href="https://github.com/monjofight/powerpogma/raw/main/manifest.xml">Download manifest.xml</a>
+  <a href="https://github.com/monjofight/powerpogma/raw/main/manifest.xml">manifest.xmlをダウンロード</a>
   ·
-  <a href="#install-on-powerpoint-for-mac">Install on Mac</a>
+  <a href="#install-on-powerpoint-for-mac">Mac版PowerPointに追加</a>
 </p>
 
 PowerPointの図形を、Figmaの右側インスペクターのようなパネルから編集できるOfficeアドインです。
 
 `powerpogma` は GitHub Pages 上の画面を読み込むため、通常利用ではローカルサーバーの起動は不要です。
 
-## Features
+## 主な機能
 
 - PowerPointのタスクペインとして動くFigma風インスペクターUI
 - 選択中の図形へのリアルタイム反映
@@ -78,7 +84,7 @@ PowerPointのリボンから次の順に開きます。
 
 `powerpogma` を選ぶと、右側にタスクペインが表示されます。
 
-## Important
+## 重要
 
 `ツール > PowerPoint アドイン` からは追加しません。
 
@@ -94,7 +100,7 @@ rm -f ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef/7f4b4b6a-
 
 その後PowerPointを再起動してください。
 
-## Development
+## 開発
 
 開発や検証を行う場合のみ Node.js を使います。
 
@@ -111,7 +117,7 @@ npm run start
 
 ただし、通常利用の `manifest.xml` は GitHub Pages を参照しているため、PowerPointで使うだけなら `npm run start` は不要です。
 
-## Sideload With Office Tooling
+## Office Add-in Toolingで追加する場合
 
 Office Add-in toolingで直接サイドロードする場合は次を実行します。
 
@@ -121,23 +127,23 @@ npx --yes office-addin-debugging start manifest.xml desktop --app powerpoint --n
 
 この方法でもローカルサーバーは不要です。`manifest.xml` は GitHub Pages 上のタスクペインを読み込みます。
 
-## Project Structure
+## ディレクトリ構成
 
 ```text
-assets/          Add-in icons
-src/             Taskpane HTML/CSS/JavaScript
+assets/          アドイン用アイコン
+src/             タスクペインのHTML/CSS/JavaScript
 manifest.xml     Office Add-in manifest
-server.mjs       Local HTTPS static server for development
-PUBLISHING.md    Publishing notes
+server.mjs       開発用ローカルHTTPS静的サーバー
+PUBLISHING.md    公開用メモ
 ```
 
-## Notes
+## メモ
 
 - Taskpane URL: https://monjofight.github.io/powerpogma/src/taskpane.html
 - Repository: https://github.com/monjofight/powerpogma
 - PowerPoint JavaScript APIで扱える図形プロパティの範囲内で動作します。
 - すべてのPowerPointオブジェクトや特殊な図形効果に対応しているわけではありません。
 
-## License
+## ライセンス
 
 MIT
