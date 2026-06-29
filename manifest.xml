@@ -10,17 +10,17 @@
   <DefaultLocale>ja-JP</DefaultLocale>
   <DisplayName DefaultValue="powerpogma"/>
   <Description DefaultValue="Figmaの右ペインのようにPowerPoint図形の位置、サイズ、塗り、線を編集するpowerpogmaです。"/>
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-  <SupportUrl DefaultValue="https://localhost:3000/src/taskpane.html?v=input-step-1"/>
+  <IconUrl DefaultValue="https://monjofight.github.io/powerpogma/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://monjofight.github.io/powerpogma/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://monjofight.github.io/powerpogma/src/taskpane.html?v=input-step-1"/>
   <AppDomains>
-    <AppDomain>https://localhost:3000</AppDomain>
+    <AppDomain>https://monjofight.github.io</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Presentation"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/src/taskpane.html?v=input-step-1"/>
+    <SourceLocation DefaultValue="https://monjofight.github.io/powerpogma/src/taskpane.html?v=input-step-1"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -65,13 +65,13 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://monjofight.github.io/powerpogma/assets/icon-32.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://monjofight.github.io/powerpogma/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://monjofight.github.io/powerpogma/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane.html?v=input-step-1"/>
-        <bt:Url id="GetStarted.Url" DefaultValue="https://localhost:3000/src/taskpane.html?v=input-step-1"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://monjofight.github.io/powerpogma/src/taskpane.html?v=input-step-1"/>
+        <bt:Url id="GetStarted.Url" DefaultValue="https://monjofight.github.io/powerpogma/src/taskpane.html?v=input-step-1"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="powerpogma"/>
