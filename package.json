@@ -1,0 +1,14 @@
+{
+  "name": "powerpogma",
+  "version": "1.0.0",
+  "description": "Figma-like inspector task pane for Microsoft PowerPoint.",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "validate": "npm run validate:js && npm run validate:manifest",
+    "validate:js": "node --check src/taskpane.js",
+    "validate:manifest": "npx --yes office-addin-manifest validate manifest.xml"
+  }
+}

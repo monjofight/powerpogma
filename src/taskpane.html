@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>powerpogma</title>
+    <link rel="stylesheet" href="./taskpane.css?v=input-step-1" />
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="module" src="./taskpane.js?v=input-step-1"></script>
+  </head>
+  <body>
+    <main class="inspector-shell">
+      <section class="panel">
+        <div class="section-head">
+          <h2>位置</h2>
+        </div>
+        <label class="label">配置</label>
+        <div class="segmented align-grid" role="group" aria-label="配置">
+          <button type="button" data-command="alignLeft" title="左寄せ" aria-label="左寄せ"><svg viewBox="0 0 24 24"><path d="M5 4v16M9 7h10M9 12h6M9 17h10"/></svg></button>
+          <button type="button" data-command="alignCenter" title="左右中央" aria-label="左右中央"><svg viewBox="0 0 24 24"><path d="M12 4v16M7 7h10M9 12h6M7 17h10"/></svg></button>
+          <button type="button" data-command="alignRight" title="右寄せ" aria-label="右寄せ"><svg viewBox="0 0 24 24"><path d="M19 4v16M5 7h10M9 12h6M5 17h10"/></svg></button>
+          <button type="button" data-command="alignTop" title="上寄せ" aria-label="上寄せ"><svg viewBox="0 0 24 24"><path d="M4 5h16M7 9v10M12 9v6M17 9v10"/></svg></button>
+          <button type="button" data-command="alignMiddle" title="上下中央寄せ" aria-label="上下中央寄せ"><svg viewBox="0 0 24 24"><path d="M4 12h16M7 7v10M12 9v6M17 7v10"/></svg></button>
+          <button type="button" data-command="alignBottom" title="下寄せ" aria-label="下寄せ"><svg viewBox="0 0 24 24"><path d="M4 19h16M7 5v10M12 9v6M17 5v10"/></svg></button>
+        </div>
+        <label class="label">位置</label>
+        <div class="grid two">
+          <label class="field"><span>X:</span><input id="left" type="text" inputmode="decimal" /></label>
+          <label class="field"><span>Y:</span><input id="top" type="text" inputmode="decimal" /></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>レイアウト</h2>
+        </div>
+        <label class="label">サイズ</label>
+        <div class="grid two">
+          <label class="field"><span>W:</span><input id="width" type="text" inputmode="decimal" /></label>
+          <label class="field"><span>H:</span><input id="height" type="text" inputmode="decimal" /></label>
+        </div>
+        <div id="spacingGroup" class="spacing-group hidden">
+          <label class="label">間隔</label>
+          <div class="grid two spacing-grid">
+            <label id="horizontalSpacingField" class="field spacing-field hidden"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5v14M17 5v14M10 8h4M10 16h4"/></svg></span><input id="horizontalSpacing" type="text" inputmode="decimal" /></label>
+            <label id="verticalSpacingField" class="field spacing-field hidden"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 17h14M8 10v4M16 10v4"/></svg></span><input id="verticalSpacing" type="text" inputmode="decimal" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>外見</h2>
+        </div>
+        <div class="grid">
+          <label class="field with-unit"><span>不透明度</span><input id="opacity" type="text" inputmode="decimal" /><em>%</em></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>塗り</h2>
+        </div>
+        <div class="paint-row">
+          <label class="swatch"><input id="fillColor" type="color" /></label>
+          <input id="fillHex" class="hex" type="text" maxlength="6" />
+          <label class="percent"><input id="fillOpacity" type="text" inputmode="decimal" /><span>%</span></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>線</h2>
+        </div>
+        <div class="paint-row">
+          <label class="swatch"><input id="lineColor" type="color" /></label>
+          <input id="lineHex" class="hex" type="text" maxlength="6" />
+          <label class="percent"><input id="lineOpacity" type="text" inputmode="decimal" /><span>%</span></label>
+        </div>
+      </section>
+      <p id="status" class="status" aria-live="polite">選択中の図形へリアルタイム反映します。</p>
+    </main>
+  </body>
+</html>

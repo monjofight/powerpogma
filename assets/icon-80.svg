@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="18" fill="#ffffff"/>
+  <rect x="8" y="20" width="36" height="44" rx="10" fill="#d35230"/>
+  <circle cx="35" cy="31" r="11" fill="#f47735"/>
+  <path d="M18 54V30h13.2c6 0 9.8 3.2 9.8 8.4 0 5.4-3.8 8.8-10.1 8.8h-6.5V54H18zm6.4-12h5.8c2.8 0 4.3-1.3 4.3-3.5 0-2.3-1.5-3.5-4.3-3.5h-5.8v7z" fill="#ffffff"/>
+  <circle cx="51" cy="38" r="16" fill="#222222"/>
+  <circle cx="38" cy="25" r="7.5" fill="#222222"/>
+  <circle cx="64" cy="25" r="7.5" fill="#222222"/>
+  <ellipse cx="51" cy="45" rx="9" ry="7" fill="#f4d0a1"/>
+  <circle cx="46.5" cy="37.5" r="1.8" fill="#ffffff"/>
+  <circle cx="55.5" cy="37.5" r="1.8" fill="#ffffff"/>
+  <path d="M51 43l-2.6 2.9h5.2L51 43z" fill="#111111"/>
+  <circle cx="66" cy="46" r="5.3" fill="#a259ff"/>
+  <circle cx="66" cy="59" r="5.3" fill="#1abcfe"/>
+  <circle cx="53" cy="59" r="5.3" fill="#0acf83"/>
+  <circle cx="53" cy="46" r="5.3" fill="#ff7262"/>
+</svg>
