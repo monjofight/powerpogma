@@ -30,8 +30,6 @@ The task pane is hosted on GitHub Pages, so normal usage does not require runnin
 
 ![powerpogma demo](./assets/demo/powerpogma-demo.gif)
 
-[Open high-quality mp4](./assets/demo/powerpogma-demo.mp4)
-
 ## Features
 
 - Figma-like inspector UI inside a PowerPoint task pane
