@@ -28,9 +28,9 @@ The task pane is hosted on GitHub Pages, so normal usage does not require runnin
 
 ## Demo
 
-<video src="./assets/demo/powerpogma-demo.mp4" controls muted playsinline width="100%"></video>
+![powerpogma demo](./assets/demo/powerpogma-demo.gif)
 
-[Open demo video](./assets/demo/powerpogma-demo.mp4)
+[Open high-quality mp4](./assets/demo/powerpogma-demo.mp4)
 
 ## Features
 
