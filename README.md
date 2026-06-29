@@ -2,96 +2,124 @@
 
 PowerPointの図形を、Figmaの右側インスペクターのようなパネルから編集できるOfficeアドインです。
 
-選択中の図形に対して、位置、サイズ、回転、整列、塗り、線、不透明度、複数選択時の間隔調整などを数値入力で操作できます。ローカルでのサイドロードと開発利用を前提にしています。
+`powerpogma` は GitHub Pages 上の画面を読み込むため、通常利用ではローカルサーバーの起動は不要です。
 
-## 主な機能
+## Features
 
 - PowerPointのタスクペインとして動くFigma風インスペクターUI
 - 選択中の図形へのリアルタイム反映
 - 位置の編集: `X`, `Y`
 - サイズの編集: `W`, `H`
-- 回転と90度回転
-- 左寄せ、中央寄せ、右寄せ、上寄せ、上下中央寄せ、下寄せ
+- 左寄せ、左右中央、右寄せ、上寄せ、上下中央寄せ、下寄せ
 - 塗り色、塗りの不透明度
 - 線の色、線の不透明度
-- 複数図形選択時のバウンディングボックス編集
 - 複数図形選択時の混合値表示
-- 横方向、縦方向の間隔調整
-- ブラウザ単体でのデモ表示
+- 複数図形選択時の横方向/縦方向の間隔調整
+- 入力欄の全選択、上下キーでの数値増減
 
-## 必要なもの
+## Install On PowerPoint For Mac
 
-- Microsoft PowerPoint
-- Office Add-insを利用できる環境
-- Node.js 18以降
-- OpenSSL
+### 1. manifest.xml をダウンロード
 
-## セットアップ
+次のファイルをダウンロードします。
+
+[manifest.xml](https://github.com/monjofight/powerpogma/raw/main/manifest.xml)
+
+### 2. PowerPointを終了
+
+PowerPointを完全に終了します。
+
+### 3. manifest.xml を wef フォルダへ配置
+
+ターミナルで次を実行します。ブラウザでダウンロードしたファイル名が `manifest.xml` になっている場合の手順です。
+
+```bash
+mkdir -p ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef
+cp ~/Downloads/manifest.xml ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef/7f4b4b6a-31c8-42da-b9f8-cb6d558c4f31.manifest.xml
+```
+
+または、ダウンロードせずに直接配置できます。
+
+```bash
+mkdir -p ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef
+curl -L https://github.com/monjofight/powerpogma/raw/main/manifest.xml \
+  -o ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef/7f4b4b6a-31c8-42da-b9f8-cb6d558c4f31.manifest.xml
+```
+
+### 4. PowerPointを起動
+
+PowerPointを起動し、任意のプレゼンテーションを開きます。
+
+### 5. powerpogmaを開く
+
+PowerPointのリボンから次の順に開きます。
+
+```text
+ホーム > アドイン > その他のアドイン > 開発者向けアドイン > powerpogma
+```
+
+`powerpogma` を選ぶと、右側にタスクペインが表示されます。
+
+## Important
+
+`ツール > PowerPoint アドイン` からは追加しません。
+
+その画面は古いPowerPointアドイン形式用で、Office.jsの `manifest.xml` は選択できないことがあります。`powerpogma` は `ホーム > アドイン` から開きます。
+
+## Uninstall On PowerPoint For Mac
+
+PowerPointを終了してから、次を実行します。
+
+```bash
+rm -f ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef/7f4b4b6a-31c8-42da-b9f8-cb6d558c4f31.manifest.xml
+```
+
+その後PowerPointを再起動してください。
+
+## Development
+
+開発や検証を行う場合のみ Node.js を使います。
 
 ```bash
 npm install
-npm run start
-```
-
-ローカルHTTPSサーバーが起動します。
-
-```text
-https://localhost:3000/src/taskpane.html
-```
-
-初回起動時に `work/certs/` 以下へローカル開発用の自己署名証明書を生成します。ブラウザやPowerPointで証明書の警告が出る場合は、開発用URLとして許可してください。
-
-ポートを変更したい場合は `PORT` を指定できます。
-
-```bash
-PORT=3001 npm run start
-```
-
-その場合は `manifest.xml` 内の `https://localhost:3000` も同じポートに変更してください。
-
-## PowerPointで読み込む
-
-開発サーバーを起動した状態で、`manifest.xml` をPowerPointへサイドロードします。
-
-Office Add-in toolingを使う場合は次のコマンドを実行します。
-
-```bash
-npx office-addin-debugging start manifest.xml desktop --app powerpoint --no-debug --dev-server-port 3000
-```
-
-読み込み後、PowerPointのホームタブに表示される `powerpogma` ボタンからタスクペインを開きます。
-
-## 開発
-
-```bash
 npm run validate
 ```
 
-このコマンドでは次の検証を行います。
+ローカルでタスクペインを確認したい場合は、HTTPSサーバーを起動できます。
 
-- `src/taskpane.js` の構文チェック
-- `manifest.xml` のOffice Add-in manifest検証
-
-GitHub Actionsでも同じ検証を実行します。
-
-## ディレクトリ構成
-
-```text
-assets/          アドイン用アイコン
-src/             タスクペインのHTML/CSS/JavaScript
-manifest.xml     Office Add-in manifest
-server.mjs       ローカルHTTPS静的サーバー
-PUBLISHING.md    GitHub公開時のメモ
+```bash
+npm run start
 ```
 
-## 注意点
+ただし、通常利用の `manifest.xml` は GitHub Pages を参照しているため、PowerPointで使うだけなら `npm run start` は不要です。
 
-- 現在の `manifest.xml` はローカル開発用に `https://localhost:3000` を参照しています。
-- GitHubで公開するだけならlocalhostのままでも問題ありません。
-- Microsoft AppSourceなどへ公開する場合は、`manifest.xml` のURLを公開済みHTTPS URLへ差し替えてください。
-- AppSource公開時は `ProviderName`、サポートURL、アイコン、説明文、スクリーンショットなども実運用向けに更新してください。
-- PowerPoint JavaScript APIで扱える図形プロパティの範囲内で動作します。すべてのPowerPointオブジェクトや特殊な図形効果に対応しているわけではありません。
+## Sideload With Office Tooling
 
-## ライセンス
+Office Add-in toolingで直接サイドロードする場合は次を実行します。
+
+```bash
+npx --yes office-addin-debugging start manifest.xml desktop --app powerpoint --no-debug
+```
+
+この方法でもローカルサーバーは不要です。`manifest.xml` は GitHub Pages 上のタスクペインを読み込みます。
+
+## Project Structure
+
+```text
+assets/          Add-in icons
+src/             Taskpane HTML/CSS/JavaScript
+manifest.xml     Office Add-in manifest
+server.mjs       Local HTTPS static server for development
+PUBLISHING.md    Publishing notes
+```
+
+## Notes
+
+- Taskpane URL: https://monjofight.github.io/powerpogma/src/taskpane.html
+- Repository: https://github.com/monjofight/powerpogma
+- PowerPoint JavaScript APIで扱える図形プロパティの範囲内で動作します。
+- すべてのPowerPointオブジェクトや特殊な図形効果に対応しているわけではありません。
+
+## License
 
 MIT
